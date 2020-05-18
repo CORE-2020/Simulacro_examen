@@ -1,0 +1,49 @@
+{
+  "name": "quiz-examen-2020",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "super": "supervisor ./bin/www",
+    "test": "NODE_ENV=testing mocha -R spec",
+    "migrate": "sequelize db:migrate --url sqlite://$(pwd)/quiz.sqlite",
+    "seed": "sequelize db:seed:all --url sqlite://$(pwd)/quiz.sqlite",
+    "migrate_win": "sequelize db:migrate --url sqlite://%cd%/quiz.sqlite",
+    "seed_win": "sequelize db:seed:all --url sqlite://%cd%/quiz.sqlite",
+    "migrate_env": "sequelize db:migrate --url $DATABASE_URL",
+    "seed_env": "sequelize db:seed:all --url $DATABASE_URL"
+  },
+  "dependencies": {
+    "connect-session-sequelize": "^6.1.1",
+    "cookie-parser": "~1.4.4",
+    "cookieconsent": "^3.1.1",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-flash": "0.0.2",
+    "express-http-to-https": "^1.1.4",
+    "express-partials": "^0.3.0",
+    "express-session": "^1.17.0",
+    "http-errors": "~1.6.3",
+    "method-override": "^3.0.0",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-github2": "^0.1.11",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.5",
+    "sequelize-cli": "^5.5.1",
+    "serve-favicon": "^2.5.0",
+    "sqlite3": "^4.1.1",
+    "supervisor": "^0.12.0"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.0",
+    "zombie": "^6.1.4"
+  },
+  "info": {
+    "githubURL": "CORE-UPM/Entrega_examen",
+    "serverUrl": "https://autocorector.dit.upm.es/",
+    "courseId": "8249",
+    "assignmentId": "83669"
+  }
+}

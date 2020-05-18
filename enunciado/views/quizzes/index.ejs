@@ -1,0 +1,43 @@
+
+<div class="right">
+    <form method="get" action="/quizzes">
+        <input type="text" name="search" value="<%= locals.search || '' %>" placeholder="question to search" autocomplete="off" />
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+<h1>
+    <%= title || "Quizzes" %>:
+</h1>
+
+<table>
+    <% for (var i in quizzes) { %>
+        <% var quiz = quizzes[i]; %>
+        <tr>
+            <td>
+                <a href="/quizzes/<%= quiz.id %>/play"><%= quiz.question %></a>
+            </td>
+            <td colspan="2">
+                <small> (by <%= quiz.author ? quiz.author.displayName : "Anonymous" %>) </small>
+            </td>
+
+            <% if (locals.loginUser && (locals.loginUser.isAdmin || locals.loginUser.id === quiz.authorId)) { %>
+                <td>
+                    <a href="/quizzes/<%= quiz.id %>" class="button">Show</a>
+                </td>
+                <td>
+                    <a href="/quizzes/<%= quiz.id %>/edit" class="button">Edit</a>
+                </td>
+                <td>
+                    <a href="/quizzes/<%= quiz.id %>?_method=DELETE"
+                       onClick="return confirm('Delete: <%= quiz.question %>');"
+                       class="button">Delete</a>
+                </td>
+            <% } %>
+        </tr>
+    <% } %>
+</table>
+
+<% if (locals.loginUser) { %>
+    <a href="/quizzes/new" class="button">Create New Quiz</a>
+<% } %>

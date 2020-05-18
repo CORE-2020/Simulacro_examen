@@ -1,0 +1,22 @@
+
+<div class="right">
+    <small> (by <%= quiz.author ? quiz.author.displayName : "Anonymous" %>) </small>
+</div>
+
+<h1>
+    Play:
+</h1>
+
+<form method="get" action="/quizzes/<%= quiz.id %>/check">
+    <p>
+        Question: <b><%= quiz.question %></b>
+    </p>
+
+
+    <div class="wideRow">
+        <input type="text" class="itemWide" name="answer" value="<%= answer %>" placeholder="Answer" autocomplete="off"/>
+        <input type="submit" class="itemNarrow" value="Check">
+    </div>
+</form>
+
+<a href="/goback" class="button">Go back</a>

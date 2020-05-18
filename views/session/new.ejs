@@ -1,0 +1,32 @@
+
+<div>
+    <a href="/auth/github">Login with GitHub</a>
+</div>
+
+<% if (!!process.env.QUIZ_OPEN_REGISTER) { %>
+    <div>
+        <a href="/users/new">Register local account</a>
+    </div>
+<% } %>
+
+<h1>Login</h1>
+
+<form method='POST' action='/login'>
+
+    <div>
+        <label for="login">Login:</label>
+        <br />
+        <input type="text" id="username" name="username" size="30" autocomplete="off" />
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <br />
+        <input type="password" id="password" name="password" size="30" autocomplete="off" />
+    </div>
+
+    <div>
+        <input name="commit" type="submit" value="Login" />
+    </div>
+
+</form>

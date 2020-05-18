@@ -1,0 +1,15 @@
+
+<div class="right">
+    <small> (by <%= quiz.author ? quiz.author.displayName : "Anonymous" %>) </small>
+</div>
+
+<h1>
+    Show Quiz:
+</h1>
+
+<ul>
+    <li>Question: <b><%= quiz.question %></b></li>
+    <li>Answer: <b><%= quiz.answer %></b></li>
+</ul>
+
+<a href="/goback" class="button">Go back</a>

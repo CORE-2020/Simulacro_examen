@@ -1,0 +1,16 @@
+body {
+    font-size: large;
+    background: #555;
+}
+
+#mainHeader {
+    font-size: x-large;
+}
+
+#page:after {
+    content: "Smartphone Layout";
+}
+
+.no-narrow {
+    display: none;
+}

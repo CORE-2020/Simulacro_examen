@@ -1,0 +1,60 @@
+<script>
+    function confirmPassword() {
+        var pw1 = document.getElementById('user_password').value;
+        var pw2 = document.getElementById('user_confirm_password').value;
+
+        <% if ( !user.id) { %>
+            if (!pw1 || !pw2) {
+                alert('Password and Confirmation fields must be filled in.');
+                return false;
+            }
+        <% } %>
+
+        if (pw1 === pw2) {
+            return true;
+        } else {
+            alert('Passwords do not match.');
+            return false;
+        }
+    }
+</script>
+
+
+<ul>
+    <li>
+        <% if ( !user.id) { %>
+            <label for="preg" class="rem">User name:</label>
+            <input type="text" id="username" name="username" value="<%= user.username %>" autocomplete="off"/>
+        <% } else { %>
+            Username: <%= user.username %>
+        <% } %>
+    </li>
+
+    <li>
+        <% if (!user.id) { %>
+            <span class="text-danger">Enter the new password twice</span>
+        <% } else { %>
+            <span class="text-danger">Leave blank to not change the current password</span>
+        <% } %>
+        <ul>
+            <li>
+                <label for="user_password" class="rem">Password:</label>
+                <input type="password" id="user_password" name="password" autocomplete="off"/>
+            </li>
+
+            <li>
+                <label for="user_confirm_password" class="rem">Confirm Password:</label>
+                <input type="password" id="user_confirm_password" autocomplete="off"/>
+            </li>
+        </ul>
+
+    </li>
+</ul>
+
+<div>
+    <a href="/goback" class="button">Cancel</a>
+</div>
+
+<div>
+    <input type="submit" value="Save" onclick="return confirmPassword()">
+</div>

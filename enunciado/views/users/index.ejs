@@ -1,0 +1,37 @@
+<h1>
+    Users
+</h1>
+
+<table>
+    <% for (var i in users) { %>
+        <tr>
+            <td>
+                <a href="/users/<%= users[i].id %>" ><%= users[i].displayName %></a>
+            </td>
+            <td>
+                <%= users[i].githubId ? "Github" : "Local" %>
+            </td>
+            <td>
+                <%= users[i].isAdmin ? "(admin)" : "" %>
+            </td>
+
+            <% if (locals.loginUser && (locals.loginUser.isAdmin || locals.loginUser.id === users[i].id)) { %>
+                <td>
+                    <% if (users[i].isLocal) { %>
+                    <a href="/users/<%= users[i].id %>/edit" class="button">Edit</a>
+                <% } %>
+                </td>
+
+                <td>
+                    <a href="/users/<%= users[i].id %>?_method=DELETE"
+                       onClick="return confirm('Delete user: <%= users[i].displayName %>');"
+                       class="button">Delete</a>
+                </td>
+            <% } %>
+        </tr>
+    <%  } %>
+</table>
+
+<% if (locals.loginUser && locals.loginUser.isAdmin) { %>
+    <a href="/users/new" class="button">Create new user</a>
+<% } %>
