@@ -41,9 +41,9 @@
     "zombie": "^6.1.4"
   },
   "info": {
-    "githubURL": "CORE-UPM/Entrega_examen",
+    "githubURL": "CORE-2020/Simulacro_examen",
     "serverUrl": "https://autocorector.dit.upm.es/",
     "courseId": "8249",
-    "assignmentId": "83669"
+    "assignmentId": "83670"
   }
 }
